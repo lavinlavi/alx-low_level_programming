@@ -1,11 +1,10 @@
 #include "main.h"
-
+/**
+ * _puts_recursion - prints a string, followed by a new line
+ * @s: my string passed from the main function.
+ */
 void _puts_recursion(char *s)
 {
-/**
-*Function that takes a string and passes each character to function _puthar
-*for output
-*/
 if (*s == '\0')
 {
 _putchar('\n');
