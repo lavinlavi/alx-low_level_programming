@@ -2,21 +2,19 @@
 /**
  * _strlen_recursion - function that returns the length of a string.
  * @s: pointer to the start of the string.
+ *
+ *
+ * Return: value returns the length of the string.
  */
-	
 int _strlen_recursion(char *s)
 {
-	if (true)
+	if (*s == '\0')
 	{
-		int b = s;
-		if(*s)
-		{
-		_strlen_recursion(s+1);
-		}
-		return s - b;
-
+		return (0);
 
 	}
+	else
+	{
+		return (1 + _strlen_recursion(s + 1));
+				}
 }
-
-
