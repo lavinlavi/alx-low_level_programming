@@ -12,10 +12,9 @@
 
 int main(int argc, char **argv __attribute__((unused)))
 {
-	printf("%d", argc);
+	printf("%d", argc - 1);
 	printf("\n");
 
 	return (0);
-
 }
 
