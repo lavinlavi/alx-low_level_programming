@@ -25,7 +25,7 @@ int _atoi(char *s)
 }
 
 /**
- * main - takes two numbers and multiplies them together.
+ * main - takes an array of numbers and returns the sum.
  *
  * @argc: the number of arguments.
  * @argv: the argument vector.
