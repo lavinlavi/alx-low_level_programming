@@ -35,15 +35,14 @@ int _atoi(char *s)
  */
 
 int main(int argc, char **argv)
-{
-	int count = 0;
-	int arg_1 = _atoi(argv[1]);
-
-	if (argc != 2)
+{	
+        int count = 0;
+	if (argc == 1)
 	{
 		printf("Error\n");
 		return (1);
 	}
+	 int arg_1 = _atoi(argv[1]);
 	if (arg_1 < 0)
 	{
 		printf("%d\n", count);
