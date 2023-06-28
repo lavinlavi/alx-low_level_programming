@@ -42,6 +42,7 @@ int main(int argc, char **argv)
 	{
 		printf("%d", sum);
 		printf("\n");
+		return (0);
 	}
 	else if (argc > 1)
 	{
