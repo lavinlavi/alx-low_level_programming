@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include "main.h"
+
+/**
+ * _atoi - convert a string to an integer
+ *@s: the string to be converted.
+ *
+ * Return: the integer value of the converted string.
+ */
+
+int _atoi(char *s)
+{
+	int sign = 1;
+	unsigned int num = 0;
+
+	do {
+		if (*s == '-')
+			sign *= -1;
+		else if (*s >= '0' && *s <= '9')
+			num = (num * 10) + (*s - '0');
+		else if (num > 0)
+			break;
+	} while (*s++);
+
+	return (num * sign);
+}
+
+/**
+ * main - takes two numbers and multiplies them together.
+ *
+ * @argc: the number of arguments.
+ * @argv: the argument vector.
+ *
+ * Return:returns 0 to show success
+ */
+
+int main(int argc, char **argv)
+{
+	if (argc < 3)
+	{
+		printf("Error");
+		printf("\n");
+		return (1);
+	}
+	else
+	{
+		int num1, num2;
+
+		num1 = _atoi(argv[1]);
+		num2 = _atoi(argv[2]);
+		printf("%d", num1 * num2);
+		printf("\n");
+	}
+	return (0);
+}
