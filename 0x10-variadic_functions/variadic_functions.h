@@ -5,11 +5,10 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-int _putchar(char c);
-int compute_sum(const unsigned int n, ...);
-void display_numbers(const char *separator, const unsigned int n, ...);
-void display_strings(const char *separator, const unsigned int n, ...);
-void display_all(const char * const format, ...);
+int sum_them_all(const unsigned int n, ...);
+void print_numbers(const char *separator, const unsigned int n, ...);
+void print_strings(const char *separator, const unsigned int n, ...);
+void print_all(const char * const format, ...);
 
 /**
  * struct print_formats - Defines print formats for various data types
