@@ -1,20 +1,20 @@
 #include "lists.h"
 
 /**
- * dispose_list - liberates a list from memory
- * @lead: first node of the linked list.
- * Return: no return.
+ * clear_list - releases a list from memory
+ * @head: starting point of the linked list.
+ * Return: does not return anything.
  */
 
-void dispose_list(list_t *lead)
+void free_list(list_t *head)
 {
-	list_t *temp_node;
+	list_t *current;
 
-	while ((temp_node = lead) != NULL)
+	while ((current = head) != NULL)
 	{
-		lead = lead->next;
-		free(temp_node->str);
-		free(temp_node);
+		head = head->next;
+		free(current->str);
+		free(current);
 	}
 }
 
