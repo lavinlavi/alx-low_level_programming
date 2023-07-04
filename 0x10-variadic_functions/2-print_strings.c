@@ -1,13 +1,13 @@
 #include "variadic_functions.h"
 
 /**
- * display_strings - prints a series of strings.
+ * print_strings -outpus strings.
  * @separator: string to be printed between the strings.
  * @n: number of strings passed to the function.
  *
- * Does not return a value.
+ * Return: no return.
  */
-void display_strings(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list valist;
 	unsigned int i;
