@@ -1,12 +1,14 @@
 #include "variadic_functions.h"
 
 /**
- * calculate_sum - calculates the sum of all the provided parameters.
- * @n: number of arguments.
+ * compute_sum - Computes the sum of all its parameters
+ * @n: Number of parameters.
  *
- * Return: the sum of the parameters.
+ * If n is 0, returns 0.
+ *
+ * Return: Sum of all its parameters.
  */
-int calculate_sum(const unsigned int n, ...)
+int compute_sum(const unsigned int n, ...)
 {
 	va_list valist;
 	unsigned int i;
