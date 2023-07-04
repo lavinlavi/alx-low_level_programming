@@ -1,29 +1,29 @@
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * display_list - check the code for OpenAI students.
- * @h: name of the list
- * Return- the total number of nodes.
+ * print_list - Function to validate the code for the training program.
+ * @h: Identifier for the list
+ * Return: the count of nodes.
  */
-size_t display_list(const node_t *h)
+size_t print_list(const list_t *h)
 {
-	int counter = 0;
+	int count = 0;
 
 	while (h)
 	{
-		if (h->data == NULL)
+		if (h->str == NULL)
 		{
 			printf("[0] (nil)\n");
 		}
 		else
 		{
-		printf("[%d] %s\n", h->length, h->data);
+		printf("[%d] %s\n", h->len, h->str);
 		}
-		counter++;
-		h = h->next_node;
+		count++;
+		h = h->next;
 	}
-	return (counter);
+	return (count);
 }
