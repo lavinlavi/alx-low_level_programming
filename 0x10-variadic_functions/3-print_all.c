@@ -1,60 +1,49 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - Outputs an assortment of argument types.
- * @format: List of argument types to be handled.
+ * display_all - Show any datatype.
+ * @format: The list of datatypes passed to this function.
+ *
+ * No return value.
  */
-void print_all(const char * const format, ...)
+
+void print_all(const char * const format, ...);
 {
     va_list args;
-    unsigned int idx = 0, inner_idx, should_print_comma = 0;
-    char *str;
-    char arg_types[] = "cifs";
-
+    int count = 0;
+    const char *types = "cifs";
+    
     va_start(args, format);
-    while (format != NULL && format[idx])
+    char *output_str;
+    for (const char* itr = format; *itr != '\0'; ++itr)
     {
-        inner_idx = 0;
-        while (arg_types[inner_idx])
+        for (int j = 0; types[j] != '\0'; ++j)
         {
-            if (format[idx] == arg_types[inner_idx] && should_print_comma)
+            if (*itr == types[j] && count > 0)
             {
                 printf(", ");
-                break;
             }
-            inner_idx++;
         }
-        switch (format[idx])
+        count = 1;
+        switch (*itr)
         {
             case 'c':
                 printf("%c", va_arg(args, int));
-                should_print_comma = 1;
                 break;
             case 'i':
                 printf("%d", va_arg(args, int));
-                should_print_comma = 1;
                 break;
             case 'f':
                 printf("%f", va_arg(args, double));
-                should_print_comma = 1;
                 break;
             case 's':
-                str = va_arg(args, char *);
-                if (str)
-                {
-                    printf("%s", str);
-                    should_print_comma = 1;
-                }
-                else
-                {
-                    printf("(nil)");
-                    should_print_comma = 1;
-                }
+                output_str = va_arg(args, char *);
+                printf("%s", output_str ? output_str : "(nil)");
                 break;
         }
-        idx++;
     }
     printf("\n");
     va_end(args);
 }
+
 
