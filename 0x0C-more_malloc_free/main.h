@@ -1,31 +1,16 @@
-#ifndef MY_MAIN_H
-#define MY_MAIN_H
-
+#ifndef MAIN_H
+#define MAIN_H
 /**
- * This is the main header file for the program.
+ * File: main
  *
- * Filename: main.h
- *
- * Provides a brief description: Main program header
+ * Desc: Central header file
  */
- 
-// Function to output a character to the standard output
-int _putchar(char c);
-
-// Function for memory allocation that verifies successful allocation
-void *malloc_checked(unsigned int b);
-
-// Function to concatenate n characters of a string to another string
-char *string_nconcat(char *s1, char *s2, unsigned int n);
-
-// Function for allocating memory for an array, with the memory set to zero
-void *_calloc(unsigned int nmemb, unsigned int size);
-
-// Function to create an array of integers from min to max
-int *array_range(int min, int max);
-
-// Function to reallocate memory block
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+int _putchar(char c);  // Prints a single character
+void *malloc_checked(unsigned int b);  // Allocates memory and checks for successful allocation
+char *string_nconcat(char *s1, char *s2, unsigned int n);  // Concatenates n characters from string s2 to string s1
+void *_calloc(unsigned int nmemb, unsigned int size);  // Allocates zero-initialized memory for nmemb elements of size bytes each
+int *array_range(int min, int max);  // Creates an array of integers from min to max
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);  // Resizes the memory block pointed to by ptr from old_size to new_size
 
 #endif
 
