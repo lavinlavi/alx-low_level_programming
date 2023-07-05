@@ -1,18 +1,21 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * malloc_checked - Origin Point
- * @size: The size of the memory block to be allocated
- * Returns: Pointer to the allocated memory, or terminates program with status code 98 if allocation fails
+ * *malloc_checked - Assigns memory block using malloc
+ * @b: Quantity of bytes to be assigned
+ *
+ * Return: A pointer pointing to the assigned memory
  */
-void *malloc_checked(unsigned int size)
+void *malloc_checked(unsigned int b)
 {
-	void *allocated_mem;
+	void *allocatedMem;
 
-	allocated_mem = malloc(size);
-	if (allocated_mem == NULL)
+	allocatedMem = malloc(b);
+
+	if (allocatedMem == NULL)
 		exit(98);
-	return (allocated_mem);
+
+	return (allocatedMem);
 }
 
