@@ -1,41 +1,41 @@
 #include "main.h"
-#include "stdlib.h"
+#include <stdlib.h>
 
 /**
- * _strdup - Main Entry Point
- * @sourceStr: string to be duplicated
- * Return: duplicated string or null
+ * _strdup - duplicates an input string
+ * @str: original string
+ * Return: pointer to the newly created string or NULL on failure
  */
-char *_strdup(char *sourceStr)
+char *_strdup(char *str)
 {
-	char *copyStr;
-	unsigned int length, index;
+	char *duplicateStr;
+	unsigned int strLength, index;
 
-	/* validate if sourceStr is null */
-	if (sourceStr == NULL)
+	/* verify if str is null */
+	if (str == NULL)
 	{
 		return (NULL);
 	}
 
-	length = 0;
-	while (sourceStr[length] != '\0')
+	strLength = 0;
+	while (str[strLength] != '\0')
 	{
-		length++;
+		strLength++;
 	}
 
-	copyStr = malloc(sizeof(char) * (length + 1));
+	duplicateStr = malloc(sizeof(char) * (strLength + 1));
 
-	/*validate if malloc has allocated memory successfully*/
-	if (copyStr == NULL)
+	/*validate if memory allocation was successful*/
+	if (duplicateStr == NULL)
 	{
 		return (NULL);
 	}
 
-	for (index = 0; index < length; index++)
+	for (index = 0; index < strLength; index++)
 	{
-		copyStr[index] = sourceStr[index];
+		duplicateStr[index] = str[index];
 	}
-	copyStr[length] = '\0';
-	return (copyStr);
+	duplicateStr[strLength] = '\0';
+	return (duplicateStr);
 }
 
