@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - Fetches the node located at a specific index in the list.
+ * get_nodeint_at_index - Fetches the node
+ * located at a specific index in the list.
  * @head: Initial node of the list.
  * @index: Position of the node to be retrieved.
  *
