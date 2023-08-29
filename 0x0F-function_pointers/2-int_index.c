@@ -1,5 +1,5 @@
 #include "function_pointers.h"
-
+#include <stdio.h>
 /**
  * int_index - return the index of the first element for which
  * cmp does not return 0
@@ -8,7 +8,7 @@
  * @size: size of the array
  * @cmp: function to be applied over all the members of the array.
  *
- * Return: returns the indes of the first elent for which cmp does 
+ * Return: returns the indes of the first elent for which cmp does
  * not return 0
  */
 
@@ -20,7 +20,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 	{
 		return (-1);
 	}
-	if (*array && (*cmp))
+	if (array && *cmp)
 	{
 		for (i = 0; i < size; i++)
 		{
