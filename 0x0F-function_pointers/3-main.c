@@ -5,13 +5,13 @@
 /**
  * main - main function of the program
  *
- * @argc - number of arguments passed to main
- * @argv - vector of arguments passed to main
+ * @argc: number of arguments passed to main
+ * @argv: vector of arguments passed to main
  *
  * Return: return 0 if success.
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int (*f)(int, int);
 	int a, b, x;
@@ -29,7 +29,7 @@ int main (int argc, char *argv[])
 	if (f)
 	{
 		x = f(a, b);
-		if ( x == -1)
+		if (x == -1)
 		{
 			printf("Error\n");
 			return (100);
