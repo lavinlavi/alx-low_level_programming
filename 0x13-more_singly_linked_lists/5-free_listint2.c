@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * free_listint2 - Releases memory allocated 
+ * free_listint2 - Releases memory allocated
  * to a linked list and sets head to NULL.
  * @head: Pointer to the head node pointer.
  *
