@@ -1,11 +1,11 @@
 #include "variadic_functions.h"
 
 /**
- * print_strings - Outputs a series of strings to the console.
- * @separator: Delimiter string used between the output strings.
- * @n: Count of strings that are passed into the function.
+ * print_strings - Outputs string elements.
+ * @separator: delimiter to insert between each string.
+ * @n: total number of string arguments.
  *
- * Return: Nothing.
+ * Return: None.
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
