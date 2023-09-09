@@ -12,7 +12,7 @@
 
 int main(int argc, char **argv)
 {
-	int fd_1, fd_2;
+	int fd_1, fd_2, i, j;
 	char buf[BUF_SIZ];
 	ssize_t num_bytes;
 
@@ -20,14 +20,15 @@ int main(int argc, char **argv)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to \n");
 		exit(97);
-	
+
 	}
 	if (!argv[1])
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fd_1 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, S_IWUSR | S_IRUSR | S_IRGRP | S_IWGRP |S_IROTH);
+	fd_1 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, S_IWUSR 
+		       	| S_IRUSR | S_IRGRP | S_IWGRP |S_IROTH);
 	fd_2 = open(argv[1], O_RDONLY);
 
 	if (fd_1 == -1)
@@ -36,23 +37,23 @@ int main(int argc, char **argv)
 		exit(100);
 	}
 
-	while ((num_bytes = read(fd_2, buf, BUF_SIZ)) > 0)
+	num_bytes = read(fd_2, buf, BUF_SIZ);
+	if (write(fd_1, buf, num_bytes) != num_bytes)
 	{
-		if (write(fd_1, buf, num_bytes) != num_bytes)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
-	if (close(fd_1) == -1)
+	i = close(fd_1);
+	j = close(fd_2);
+	if (i == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_1);
 		exit(100);
 	}
-	if (close(fd_2) == -1)
+	if (j == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_2);
 		exit(100);
 	}
-	return (0);
-}	
+	exit(EXIT_SUCCESS);
+}
