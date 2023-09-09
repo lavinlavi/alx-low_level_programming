@@ -2,9 +2,10 @@
 
 /**
  * read_textfile -  a function to open and read a file.
- * 
+ *
  * @letters:  the number of bytes to read from the opened file.
- * 
+ * @filename: pointer to the file that is to be processed.
+ *
  * Return: the function returns 0 if failures.
  */
 
@@ -15,7 +16,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *buffer;
 
 	buffer = malloc(letters * sizeof(char));
-	
+
 	if (filename)
 	{
 
@@ -25,17 +26,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			return (0);
 		}
-		else
+
+		while ((num_bytes = read(fd, buffer, letters)) > 0)
 		{
-			while ((num_bytes = read(fd, buffer, letters)) > 0)
-				{
-					if (write(STDOUT_FILENO, buffer, num_bytes) == -1)
-					       return (0);
-					return (num_bytes);
-				}	
-			
+			if (num_bytes != write(STDOUT_FILENO, buffer,  num_bytes))
+				return (0);
+			close(fd);
+			free(buffer);
+			return (num_bytes);
 		}
-		close(fd);
 	}
 
 	return (0);
