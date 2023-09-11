@@ -29,6 +29,10 @@ int main(int argc, char **argv)
 	i = close(fd_1);
 	j = close(fd_2);
 
+	if(!buf)
+	{
+		return (-1);
+	}
 	if (i == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_1);
