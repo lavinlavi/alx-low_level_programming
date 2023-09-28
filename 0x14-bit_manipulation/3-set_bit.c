@@ -13,22 +13,16 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned int i;
 
-	if (!n)
+	if (!n | (index > 64))
 	{
 		return (-1);
 	}
-	for (i = 0; n[i]; i++)
-	{
-		if (i == index)
-		{
-			if (n[i] == 1)
-			{
-				return (1);
-			}
-			else
-				n[i] = 1;
-			return (1);
-		}
-	}
-	return (-1);
+
+	for ( i = 1; index > 0; index--, i *= 2)
+		;
+
+	*n += i;
+
+	return (1);
 }
+
