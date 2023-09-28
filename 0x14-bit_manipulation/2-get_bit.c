@@ -10,6 +10,16 @@
  * occured
  */
 
-int get_bit(unsigned long in n, unsigned int index)
+int get_bit(unsigned long int n, unsigned int index)
 {
+	unsigned long int s;
 
+	if (index > 64)
+	{
+		return (1);
+	}
+
+	s = n >> index;
+
+	return (s & 1);
+}
